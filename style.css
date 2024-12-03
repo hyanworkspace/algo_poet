@@ -23,7 +23,7 @@ body {
     min-width: 100vw;
     display: flex;
     position: relative;
-    background-image: url('/public/bg2.png');
+    background-image: url('bg2.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -350,7 +350,7 @@ body {
     min-width: 100vw;
     display: flex;
     position: relative;
-    background-image: url('/public/bg2.png');
+    background-image: url('bg2.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -411,7 +411,7 @@ p {
 /* 添加自定义字体 */
 @font-face {
     font-family: 'CustomFont';
-    src: url('/public/font.woff') format('woff');
+    src: url('font.woff') format('woff');
 }
 
 /* 生成按钮样式 */
@@ -451,7 +451,7 @@ p {
     min-width: 100vw;
     display: block;
     position: relative;
-    background-image: url('/public/bg2.png');
+    background-image: url('bg2.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
