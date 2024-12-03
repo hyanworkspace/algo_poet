@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorithmic Poet - Poem</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="page-two" id="ripple-container">
+        <div class="content">
+            <div class="poetry-content">
+                <p lang="fr">
+                    <span class="repeat-text">
+                        Entre l'ombre et la lumière, Entre l'ombre et la lumière, Entre l'ombre et la lumière, Entre l'ombre et la lumière, Entre l'ombre et la lumière, Entre l'ombre et la lumière, Entre l'ombre et la lumière, Entre l'ombre et la lumière, Entre l'ombre et la lumière, Entre l'ombre et la lumière,
+                    </span>
+                </p>
+                <p lang="fr">
+                    <span class="repeat-text">
+                        Je marche, fragile géométrie. Je marche, fragile géométrie. Je marche, fragile géométrie. Je marche, fragile géométrie. Je marche, fragile géométrie. Je marche, fragile géométrie. Je marche, fragile géométrie. Je marche, fragile géométrie. Je marche, fragile géométrie.
+                    </span>
+                </p>
+                <p lang="fr">
+                    <span class="repeat-text">
+                        Où mes racines tremblent, Où mes racines tremblent, Où mes racines tremblent, Où mes racines tremblent, Où mes racines tremblent, Où mes racines tremblent, Où mes racines tremblent, Où mes racines tremblent, Où mes racines tremblent, Où mes racines tremblent,
+                    </span>
+                </p>
+                <p lang="fr">
+                    <span class="repeat-text">
+                        Dans l'équilibre instable de l'être. Dans l'équilibre instable de l'être. Dans l'équilibre instable de l'être. Dans l'équilibre instable de l'être. Dans l'équilibre instable de l'être. Dans l'équilibre instable de l'être. Dans l'équilibre instable de l'être.
+                    </span>
+                </p>
+            </div>
+            <div class="generate-button">
+                <a href="/" id="backBtn">Home</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="/public/js/jquery-2.2.1.min.js"></script>
+    <script src="/public/js/jquery.ripples-min.js"></script>
+    <script src="/public/js/main.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#ripple-container').ripples({
+                resolution: 800,
+                dropRadius: 100,
+                perturbance: 0.025,
+                interactive: true,
+                crossOrigin: ''
+            });
+
+            $('#ripple-container').on('mousemove', function(e) {
+                $(this).ripples('drop', e.pageX, e.pageY, 20, 0.025);
+            });
+
+            // 页面淡入效果
+            $('.page-two').css('opacity', 0).show().animate({
+                opacity: 1
+            }, 1000);
+
+            // 添加返回按钮的淡出效果
+            $('#backBtn').click(function(e) {
+                e.preventDefault();
+                $('.page-two').fadeOut(1000, function() {
+                    window.location.href = '/';
+                });
+            });
+
+            setInterval(function() {
+                $('#ripple-container').ripples('disturb');
+            }, 100);
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorithmic Poet</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="intro" id="ripple-container">
+        <div class="content">
+            <p lang="en">How to translate physicality into digital forms？</p>
+            <br><br>
+            <p lang="fr">La translation numérique est une métamorphose fascinante dans les pratiques médiatiques contemporaines. Nous défions les frontières entre la matière et le virtuel, orchestrant une cartographie sensorielle dans l'espace digital – une chorégraphie où l'expérience physique se transmute en flux immatériels, redessinant les contours de notre perception.</p>
+            <br><br><br><br>
+            <p lang="zh">质性与虚构的转换或许是当代媒体实践中最迷人的形态转换之一。</p>
+            <p lang="zh">想要探索"物质"与"虚拟"之间的边界，将感官经验映射到数字空间。</p>
+            <p lang="zh">跨界？跨媒介？感知边界？解离，重构，我们又将得到什么？</p>
+            <div class="generate-button">
+                <a href="/poem.html" id="generateBtn">Create</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="/public/js/jquery-2.2.1.min.js"></script>
+    <script src="/public/js/jquery.ripples-min.js"></script>
+    <script src="/public/js/main.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#ripple-container').ripples({
+                resolution: 800,
+                dropRadius: 100,
+                perturbance: 0.025,
+                interactive: true,
+                crossOrigin: ''
+            });
+
+            $('#ripple-container').on('mousemove', function(e) {
+                $(this).ripples('drop', e.pageX, e.pageY, 20, 0.025);
+            });
+
+            // 修改链接行为
+            $('#generateBtn').click(function(e) {
+                e.preventDefault();
+                $('.intro').fadeOut(1000, function() {
+                    window.location.href = '/poem.html';
+                });
+            });
+
+            setInterval(function() {
+                $('#ripple-container').ripples('disturb');
+            }, 100);
+        });
+    </script>
+</body>
+</html>
